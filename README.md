@@ -336,9 +336,9 @@ WHERE "country"."id" IN (1, 2, 3)
 
 ## 結論
 
-至於要使用 `select_related` 還是 `prefetch_related` 我認為應該看使用情境,
-
 `select_related` 可以只 Query 一次, 但 JOIN 還是需要一點成本.
+
+通常使用在 OneToOne(一對一) 或 ForeignKey(多對一), 透過 join 降低查詢次數.
 
 ```text
 select_related is limited to single-valued relationships - foreign key and one-to-one.
@@ -346,9 +346,7 @@ select_related is limited to single-valued relationships - foreign key and one-t
 
 `prefetch_related` Query 多次(依照你要取的 ForeignKey 數量), 但執行比較不需要成本的 Query.
 
-```text
-prefetch_related can work many-to-many and many-to-one objects
-```
+通常使用在 OneToMany(一對多) 或 ManyToMany(多對多), 避免載入大量資料.
 
 ## 執行環境
 
