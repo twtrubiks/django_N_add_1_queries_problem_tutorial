@@ -1,7 +1,8 @@
-"""django_N_add_1_queries_problem_tutorial URL Configuration
+"""
+URL configuration for django_N_add_1_queries_problem_tutorial project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -15,11 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from books.models import Country, Author, Book
-
-admin.site.register(Country)
-admin.site.register(Author)
-admin.site.register(Book)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
